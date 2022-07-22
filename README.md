@@ -9,7 +9,7 @@ COCO 数据集常用操作
 
 
 <div align="center">
-  <img src="./HIMG_20211108_144919.jpg#pic_center" width="40%" align=left/><img src="./HIMG_20211108_144919.png#pic_center" width="40%" align=right/>
+  <img src="Picture/HIMG_20211108_144919.jpg#pic_center" width="40%" align=left/><img src="Picture/HIMG_20211108_144919.png#pic_center" width="40%" align=right/>
 </div>
 
 
