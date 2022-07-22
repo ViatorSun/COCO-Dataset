@@ -23,5 +23,16 @@ path = "./001.jpg"         # 原图片路径
 img  = Image.open(path)     # 打开图片
 
 save_path = "../newpath/img.jpg"
-img.save("1.jpg")           # 另保存图片
+img.save(save_path)           # 另保存图片
+```
+
+<br>
+<br>
+
+
+修改 labelme 标注好的JSON文件，并依旧保存为 labelme格式
+```python
+with open(json_path, 'w') as r:
+      json.dump(data, r, ensure_ascii=False, indent=2)
+r.close()
 ```
