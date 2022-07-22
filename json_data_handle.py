@@ -26,9 +26,9 @@ from labelme.logger import logger
 from labelme import utils
 
 
-def main(json_file):
+def main(json_File, save_File):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out", default='/Users/viatorsun/Desktop/Demo/Data/Tomato/')
+    parser.add_argument("--out", default = save_File)
     args = parser.parse_args()
 
     img_name = osp.basename(json_file)[:-5]
@@ -43,17 +43,18 @@ def main(json_file):
     data["imagePath"] = img_path
     data["imageData"] = None
 
-    new_json = '/Users/viatorsun/Desktop/Demo/Data/Tomato/NewJson/'
-    if not osp.exists(new_json):
-        os.makedirs(new_json)
+ 
+    if not osp.exists(args.out):
+        os.makedirs(args.out)
 
-    write_json_data(data, os.path.join(new_json, img_name) + '.json')
+    write_json_data(data, os.path.join(args.out, img_name) + '.json')
 
 
 
 def write_json_data(dict, json_path1):
     with open(json_path1, 'w') as r:
-        json.dump(dict, r)
+        # json.dump(dict, r)
+        json.dump(data, r, ensure_ascii=False, indent=2)        # 修改 json内容，保存为 labelme相同格式
     r.close()
 
 
@@ -61,7 +62,7 @@ def write_json_data(dict, json_path1):
 
 if __name__ == "__main__":
     json_path = '/Users/viatorsun/Desktop/Demo/Data/Tomato/TomatoJSON'
-
+    save_path = '/Users/viatorsun/Desktop/Demo/Data/Tomato/NewJson/'
     for root , dirs , files in os.walk(json_path):
         for file in files:
             if file == '.DS_Store':
