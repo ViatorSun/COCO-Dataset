@@ -65,7 +65,9 @@ def main():
             assert class_name == "__ignore__"
             continue
         class_name_to_id[class_name] = class_id
-        data["categories"].append( dict(supercategory=None, id=class_id, name=class_name,) )
+        
+        if class_name != "_background_":
+            data["categories"].append( dict(supercategory=None, id=class_id, name=class_name,) )
 
     out_ann_file = osp.join(args.output_dir, "annotations.json")
     label_files = glob.glob(osp.join(args.input_dir, "*.json"))
